@@ -1,0 +1,1 @@
+export { TemplateLocaleProvider } from "./provider";
