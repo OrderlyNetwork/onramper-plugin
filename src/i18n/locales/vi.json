@@ -1,3 +1,27 @@
 {
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "onramp.pluginName": "Mua Crypto (Onramper)",
+  "onramp.tabTitle": "Mua Crypto",
+  "onramp.noPaymentMethod": "Không có phương thức thanh toán khả dụng",
+  "onramp.youReceive": "Bạn nhận",
+  "onramp.youSpend": "Bạn chi",
+  "onramp.noPartner": "Không có đối tác khả dụng",
+  "onramp.continue": "Tiếp tục",
+  "onramp.iframeTitle": "Tiện ích Onramper",
+  "onramp.amountBetween": "Số tiền phải nằm trong khoảng {{currency}} {{min}} đến {{currency}} {{max}}",
+  "onramp.by": "bởi",
+  "onramp.payWith": "Thanh toán bằng",
+  "onramp.history": "Lịch sử",
+  "onramp.pendingPurchase": "{{count}} giao dịch đang chờ",
+  "onramp.pendingPurchases": "{{count}} giao dịch đang chờ",
+  "onramp.statusCompleted": "đã hoàn tất",
+  "onramp.quantity": "Số lượng",
+  "onramp.unknownNetwork": "Không rõ",
+  "onramp.missingRequiredInfo": "Thiếu thông tin bắt buộc: {{list}}",
+  "onramp.missing.spendAmount": "số tiền chi",
+  "onramp.missing.currency": "tiền pháp định",
+  "onramp.missing.network": "mạng (chain)",
+  "onramp.missing.partner": "đối tác",
+  "onramp.missing.paymentMethod": "phương thức thanh toán",
+  "onramp.missing.address": "địa chỉ ví"
 }

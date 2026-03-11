@@ -4,6 +4,8 @@ import type { OrderlySDK } from "@orderly.network/plugin-core";
 import { BuyCryptoIcon } from "./components/icons";
 import { OnrampForm } from "./components/onrampForm";
 import { OnrampConfigProvider } from "./context/OnrampConfigContext";
+import { OnrampLocaleProvider } from "./i18n";
+import { i18n } from "@orderly.network/i18n";
 
 export interface OnrampPluginOptions {
   title?: string;
@@ -23,7 +25,7 @@ export function registerOnrampPlugin(options: OnrampPluginOptions) {
   return (SDK: OrderlySDK) => {
     SDK.registerPlugin({
       id: "orderly-onramp",
-      name: "Buy Crypto (Onramper)",
+      name: i18n.t("onramp.pluginName"),
       version: "1.0.0",
       interceptors: [
         createInterceptor("Transfer.DepositAndWithdraw", (Original, props) => {
@@ -33,7 +35,7 @@ export function registerOnrampPlugin(options: OnrampPluginOptions) {
 
           const onrampTab = {
             id: "onramp",
-            title: options.title ?? "Buy Crypto",
+            title: options.title ?? i18n.t("onramp.tabTitle"),
             icon: options.icon ?? defaultIcon,
             component: (props: any) => (
               <OnrampConfigProvider
@@ -52,7 +54,11 @@ export function registerOnrampPlugin(options: OnrampPluginOptions) {
             ...(Array.isArray(props.extraTabs) ? props.extraTabs : []),
             onrampTab,
           ];
-          return <Original {...props} extraTabs={extraTabs} />;
+          return (
+            <OnrampLocaleProvider>
+              <Original {...props} extraTabs={extraTabs} />
+            </OnrampLocaleProvider>
+          );
         }),
       ],
     });

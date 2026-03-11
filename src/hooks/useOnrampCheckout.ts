@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from "react";
 import { toast } from "@orderly.network/ui";
+import { useTranslation } from "@orderly.network/i18n";
 import type { OnrampPartner } from "../components/partnerSelect";
 import type { PaymentMethod } from "../components/paymentMethodSelect";
 import type { FiatCurrency } from "../constants";
@@ -29,6 +30,7 @@ export function useOnrampCheckout({
   address: string | undefined;
   isLoading: boolean;
 }) {
+  const { t } = useTranslation();
   const { apiKey, secretKey } = useOnrampConfig();
   const [iframeDialogOpen, setIframeDialogOpen] = useState(false);
 
@@ -83,15 +85,23 @@ export function useOnrampCheckout({
   const onContinue = useCallback(() => {
     const missing: string[] = [];
     const num = parseFloat(spendAmount);
-    if (!spendAmount || isNaN(num) || num <= 0) missing.push("spend amount");
-    if (!selectedCurrency) missing.push("fiat currency");
-    if (!onramperToken) missing.push("network (chain)");
-    if (!selectedPartner) missing.push("partner");
-    if (!selectedPaymentMethod) missing.push("payment method");
-    if (!address) missing.push("wallet address");
+    if (!spendAmount || isNaN(num) || num <= 0)
+      missing.push(t("onramp.missing.spendAmount"));
+    if (!selectedCurrency)
+      missing.push(t("onramp.missing.currency"));
+    if (!onramperToken)
+      missing.push(t("onramp.missing.network"));
+    if (!selectedPartner)
+      missing.push(t("onramp.missing.partner"));
+    if (!selectedPaymentMethod)
+      missing.push(t("onramp.missing.paymentMethod"));
+    if (!address)
+      missing.push(t("onramp.missing.address"));
 
     if (missing.length > 0) {
-      const msg = `Missing required info: ${missing.join(", ")}`;
+      const msg = t("onramp.missingRequiredInfo", {
+        list: missing.join(", "),
+      });
       toast.error(msg);
       console.error("[Onramp] Cannot continue –", msg);
       return;
@@ -104,6 +114,7 @@ export function useOnrampCheckout({
     selectedPartner,
     selectedPaymentMethod,
     address,
+    t,
   ]);
 
   return {

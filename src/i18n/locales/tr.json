@@ -1,3 +1,27 @@
 {
-  "common.ok": "Tamam"
+  "common.ok": "Tamam",
+  "onramp.pluginName": "Kripto Satın Al (Onramper)",
+  "onramp.tabTitle": "Kripto Satın Al",
+  "onramp.noPaymentMethod": "Kullanılabilir ödeme yöntemi yok",
+  "onramp.youReceive": "Alacağınız",
+  "onramp.youSpend": "Harcayacağınız",
+  "onramp.noPartner": "Kullanılabilir iş ortağı yok",
+  "onramp.continue": "Devam",
+  "onramp.iframeTitle": "Onramper Bileşeni",
+  "onramp.amountBetween": "Tutar {{currency}} {{min}} ile {{currency}} {{max}} arasında olmalıdır",
+  "onramp.by": "tarafından",
+  "onramp.payWith": "Şununla öde",
+  "onramp.history": "Geçmiş",
+  "onramp.pendingPurchase": "{{count}} bekleyen satın alma",
+  "onramp.pendingPurchases": "{{count}} bekleyen satın alma",
+  "onramp.statusCompleted": "tamamlandı",
+  "onramp.quantity": "Miktar",
+  "onramp.unknownNetwork": "Bilinmiyor",
+  "onramp.missingRequiredInfo": "Gerekli bilgi eksik: {{list}}",
+  "onramp.missing.spendAmount": "harcama tutarı",
+  "onramp.missing.currency": "itibari para birimi",
+  "onramp.missing.network": "ağ (zincir)",
+  "onramp.missing.partner": "iş ortağı",
+  "onramp.missing.paymentMethod": "ödeme yöntemi",
+  "onramp.missing.address": "cüzdan adresi"
 }

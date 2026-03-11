@@ -4,17 +4,17 @@ import {
   ExternalLocaleProvider,
   LocaleCode,
 } from "@orderly.network/i18n";
-import { TemplateLocales, TTemplateLocales } from "./module";
+import { OnrampLocales, TOnrampLocales } from "./module";
 
-preloadDefaultResource(TemplateLocales);
+preloadDefaultResource(OnrampLocales);
 
 const resources = (lang: LocaleCode) => {
   return import(`./locales/${lang}.json`).then(
-    (res) => res.default as TTemplateLocales
+    (res) => res.default as TOnrampLocales
   );
 };
 
-export const TemplateLocaleProvider: FC<PropsWithChildren> = (props) => {
+export const OnrampLocaleProvider: FC<PropsWithChildren> = (props) => {
   return (
     <ExternalLocaleProvider resources={resources}>
       {props.children}

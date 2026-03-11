@@ -52,7 +52,9 @@ export const ChainSelect: React.FC<ChainSelectProps> = (props) => {
     <ChainIcon className="oui-size-[18px]" chainId={value?.id} />
   );
 
-  const chainName = wrongNetwork ? "Unknown" : value?.info?.network_infos?.name;
+  const chainName = wrongNetwork
+    ? t("onramp.unknownNetwork")
+    : value?.info?.network_infos?.name;
 
   const currentChain = chains.find((chain) => chain.chain_id === value?.id);
   const extendedCurrentChain = currentChain as API.NetworkInfos & {

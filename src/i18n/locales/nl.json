@@ -1,3 +1,27 @@
 {
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "onramp.pluginName": "Crypto kopen (Onramper)",
+  "onramp.tabTitle": "Crypto kopen",
+  "onramp.noPaymentMethod": "Geen beschikbare betaalmethode",
+  "onramp.youReceive": "Je ontvangt",
+  "onramp.youSpend": "Je besteedt",
+  "onramp.noPartner": "Geen beschikbare partner",
+  "onramp.continue": "Doorgaan",
+  "onramp.iframeTitle": "Onramper-widget",
+  "onramp.amountBetween": "Het bedrag moet tussen {{currency}} {{min}} en {{currency}} {{max}} liggen",
+  "onramp.by": "door",
+  "onramp.payWith": "Betalen met",
+  "onramp.history": "Geschiedenis",
+  "onramp.pendingPurchase": "{{count}} lopende aankoop",
+  "onramp.pendingPurchases": "{{count}} lopende aankopen",
+  "onramp.statusCompleted": "voltooid",
+  "onramp.quantity": "Hoeveelheid",
+  "onramp.unknownNetwork": "Onbekend",
+  "onramp.missingRequiredInfo": "Vereiste informatie ontbreekt: {{list}}",
+  "onramp.missing.spendAmount": "te besteden bedrag",
+  "onramp.missing.currency": "fiatvaluta",
+  "onramp.missing.network": "netwerk (chain)",
+  "onramp.missing.partner": "partner",
+  "onramp.missing.paymentMethod": "betaalmethode",
+  "onramp.missing.address": "walletadres"
 }

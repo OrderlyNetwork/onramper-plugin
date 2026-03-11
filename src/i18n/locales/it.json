@@ -1,3 +1,27 @@
 {
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "onramp.pluginName": "Acquista crypto (Onramper)",
+  "onramp.tabTitle": "Acquista crypto",
+  "onramp.noPaymentMethod": "Nessun metodo di pagamento disponibile",
+  "onramp.youReceive": "Ricevi",
+  "onramp.youSpend": "Spendi",
+  "onramp.noPartner": "Nessun partner disponibile",
+  "onramp.continue": "Continua",
+  "onramp.iframeTitle": "Widget Onramper",
+  "onramp.amountBetween": "L'importo deve essere compreso tra {{currency}} {{min}} e {{currency}} {{max}}",
+  "onramp.by": "da",
+  "onramp.payWith": "Paga con",
+  "onramp.history": "Cronologia",
+  "onramp.pendingPurchase": "{{count}} acquisto in sospeso",
+  "onramp.pendingPurchases": "{{count}} acquisti in sospeso",
+  "onramp.statusCompleted": "completato",
+  "onramp.quantity": "Quantità",
+  "onramp.unknownNetwork": "Sconosciuto",
+  "onramp.missingRequiredInfo": "Mancano informazioni richieste: {{list}}",
+  "onramp.missing.spendAmount": "importo da spendere",
+  "onramp.missing.currency": "valuta fiat",
+  "onramp.missing.network": "rete (chain)",
+  "onramp.missing.partner": "partner",
+  "onramp.missing.paymentMethod": "metodo di pagamento",
+  "onramp.missing.address": "indirizzo del wallet"
 }

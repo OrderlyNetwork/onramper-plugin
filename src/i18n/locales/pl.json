@@ -1,3 +1,27 @@
 {
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "onramp.pluginName": "Kup krypto (Onramper)",
+  "onramp.tabTitle": "Kup krypto",
+  "onramp.noPaymentMethod": "Brak dostępnej metody płatności",
+  "onramp.youReceive": "Otrzymujesz",
+  "onramp.youSpend": "Wydajesz",
+  "onramp.noPartner": "Brak dostępnego partnera",
+  "onramp.continue": "Kontynuuj",
+  "onramp.iframeTitle": "Widget Onramper",
+  "onramp.amountBetween": "Kwota musi mieścić się w przedziale {{currency}} {{min}}–{{currency}} {{max}}",
+  "onramp.by": "przez",
+  "onramp.payWith": "Zapłać za pomocą",
+  "onramp.history": "Historia",
+  "onramp.pendingPurchase": "{{count}} oczekujący zakup",
+  "onramp.pendingPurchases": "{{count}} oczekujące zakupy",
+  "onramp.statusCompleted": "zakończono",
+  "onramp.quantity": "Ilość",
+  "onramp.unknownNetwork": "Nieznana",
+  "onramp.missingRequiredInfo": "Brak wymaganych informacji: {{list}}",
+  "onramp.missing.spendAmount": "kwota wydatku",
+  "onramp.missing.currency": "waluta fiducjarna",
+  "onramp.missing.network": "sieć (łańcuch)",
+  "onramp.missing.partner": "partner",
+  "onramp.missing.paymentMethod": "metoda płatności",
+  "onramp.missing.address": "adres portfela"
 }

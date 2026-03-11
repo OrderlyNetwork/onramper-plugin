@@ -1,3 +1,27 @@
 {
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "onramp.pluginName": "Acheter des cryptos (Onramper)",
+  "onramp.tabTitle": "Acheter des cryptos",
+  "onramp.noPaymentMethod": "Aucun moyen de paiement disponible",
+  "onramp.youReceive": "Vous recevez",
+  "onramp.youSpend": "Vous dépensez",
+  "onramp.noPartner": "Aucun partenaire disponible",
+  "onramp.continue": "Continuer",
+  "onramp.iframeTitle": "Widget Onramper",
+  "onramp.amountBetween": "Le montant doit être compris entre {{currency}} {{min}} et {{currency}} {{max}}",
+  "onramp.by": "par",
+  "onramp.payWith": "Payer avec",
+  "onramp.history": "Historique",
+  "onramp.pendingPurchase": "{{count}} achat en attente",
+  "onramp.pendingPurchases": "{{count}} achats en attente",
+  "onramp.statusCompleted": "terminé",
+  "onramp.quantity": "Quantité",
+  "onramp.unknownNetwork": "Inconnu",
+  "onramp.missingRequiredInfo": "Informations requises manquantes : {{list}}",
+  "onramp.missing.spendAmount": "montant à dépenser",
+  "onramp.missing.currency": "devise fiduciaire",
+  "onramp.missing.network": "réseau (chaîne)",
+  "onramp.missing.partner": "partenaire",
+  "onramp.missing.paymentMethod": "moyen de paiement",
+  "onramp.missing.address": "adresse du portefeuille"
 }

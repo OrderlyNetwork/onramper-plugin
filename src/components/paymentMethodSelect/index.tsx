@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "@orderly.network/i18n";
 import {
   Box,
   DropdownMenuContent,
@@ -31,6 +32,7 @@ type PaymentMethodSelectProps = {
 export const PaymentMethodSelect: React.FC<PaymentMethodSelectProps> = (
   props,
 ) => {
+  const { t } = useTranslation();
   const { methods, value, disabled, loading } = props;
   const [open, setOpen] = useState(false);
 
@@ -62,7 +64,7 @@ export const PaymentMethodSelect: React.FC<PaymentMethodSelectProps> = (
       <div>
         <Flex>
           <Text size="2xs" intensity={54}>
-            Pay with
+            {t("onramp.payWith")}
           </Text>
         </Flex>
         <Flex gapX={1} itemAlign="center">

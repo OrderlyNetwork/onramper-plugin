@@ -1,4 +1,5 @@
 import { FC, RefObject } from "react";
+import { useTranslation } from "@orderly.network/i18n";
 import {
   CaretDownIcon,
   DropdownMenuContent,
@@ -24,11 +25,12 @@ export const HistoryDropdown: FC<HistoryDropdownProps> = ({
   pendingTransactions,
   containerRef,
 }) => {
+  const { t } = useTranslation();
   if (transactions.length === 0) {
     return (
       <Flex justify="between" itemAlign="center" className="oui-w-full">
         <Text size="sm" intensity={98} weight="semibold">
-          You spend
+          {t("onramp.youSpend")}
         </Text>
       </Flex>
     );
@@ -38,7 +40,7 @@ export const HistoryDropdown: FC<HistoryDropdownProps> = ({
     <DropdownMenuRoot>
       <Flex justify="between" itemAlign="center" className="oui-w-full">
         <Text size="sm" intensity={98}>
-          You spend
+          {t("onramp.youSpend")}
         </Text>
         <DropdownMenuTrigger asChild>
           <Flex
@@ -50,13 +52,18 @@ export const HistoryDropdown: FC<HistoryDropdownProps> = ({
               <Flex itemAlign="center" className="oui-gap-1.5">
                 <Spinner size="sm" className="oui-text-primaryLight" />
                 <Text size="2xs" intensity={54}>
-                  {pendingTransactions.length} pending purchase
-                  {pendingTransactions.length > 1 ? "s" : ""}
+                  {pendingTransactions.length === 1
+                    ? t("onramp.pendingPurchase", {
+                        count: pendingTransactions.length,
+                      })
+                    : t("onramp.pendingPurchases", {
+                        count: pendingTransactions.length,
+                      })}
                 </Text>
               </Flex>
             ) : (
               <Text size="xs" intensity={54}>
-                History
+                {t("onramp.history")}
               </Text>
             )}
             <CaretDownIcon
@@ -117,7 +124,9 @@ export const HistoryDropdown: FC<HistoryDropdownProps> = ({
                           : "oui-text-success",
                     )}
                   >
-                    {tx.status === "paid" ? "completed" : tx.status}
+                    {tx.status === "paid"
+                      ? t("onramp.statusCompleted")
+                      : tx.status}
                   </Text>
                   <Text
                     size="xs"

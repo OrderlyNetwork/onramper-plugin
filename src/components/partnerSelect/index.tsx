@@ -1,4 +1,5 @@
 import { FC, RefObject, useRef, useState } from "react";
+import { useTranslation } from "@orderly.network/i18n";
 import {
   Box,
   CaretDownIcon,
@@ -33,6 +34,7 @@ export const PartnerSelect: FC<PartnerSelectProps> = ({
   onValueChange,
   containerRef,
 }) => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const selectable = partners.length > 1;
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -54,7 +56,7 @@ export const PartnerSelect: FC<PartnerSelectProps> = ({
           className="oui-cursor-pointer oui-select-none"
         >
           <Text size="2xs" intensity={54} weight="semibold">
-            by
+            {t("onramp.by")}
           </Text>
           <img
             alt={value.name}
@@ -185,7 +187,7 @@ export const PartnerSelect: FC<PartnerSelectProps> = ({
                             intensity={36}
                             className="oui-text-right oui-leading-[15px]"
                           >
-                            You receive
+                            {t("onramp.youReceive")}
                           </Text>
                           <Text intensity={98} className="oui-leading-[15px]">
                             {partner.payout.toFixed(2)} USDC

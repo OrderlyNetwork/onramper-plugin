@@ -1,4 +1,5 @@
 import { FC, useRef } from "react";
+import { useTranslation } from "@orderly.network/i18n";
 import {
   Box,
   Flex,
@@ -25,6 +26,7 @@ export type OnrampFormProps = OnrampFormState & {
 };
 
 export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
+  const { t } = useTranslation();
   const {
     paymentMethods,
     selectedPaymentMethod,
@@ -56,7 +58,6 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
     transactions,
     pendingTransactions,
   } = props;
-  console.log("onramperIframeUrl", onramperIframeUrl);
   const formRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -87,7 +88,7 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
                 value={
                   selectedPaymentMethod ?? {
                     id: "_",
-                    name: "No available payment method",
+                    name: t("onramp.noPaymentMethod"),
                   }
                 }
                 onValueChange={onPaymentMethodChange}
@@ -145,7 +146,7 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
         >
           <Flex justify="between" className="oui-w-full">
             <Text size="sm" intensity={98} weight="semibold">
-              You receive
+              {t("onramp.youReceive")}
             </Text>
 
             <Flex gapX={1}>
@@ -216,7 +217,7 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
                 <Spinner size="sm" />
               ) : (
                 <Text size="2xs" intensity={36}>
-                  No available partner
+                  {t("onramp.noPartner")}
                 </Text>
               )}
             </Flex>
@@ -232,7 +233,7 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
               onClick={onContinue}
               disabled={isContinueDisabled}
             >
-              Continue
+              {t("onramp.continue")}
             </Button>
           </Box>
         </Flex>
@@ -244,7 +245,7 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
           <div className="oui-fixed oui-inset-0 oui-z-50 oui-flex oui-flex-col oui-bg-black/80">
             <iframe
               src={onramperIframeUrl}
-              title="Onramper Widget"
+              title={t("onramp.iframeTitle")}
               allow="accelerometer; autoplay; camera; gyroscope; payment; microphone"
               className="oui-w-full oui-flex-1 oui-border-none"
             />

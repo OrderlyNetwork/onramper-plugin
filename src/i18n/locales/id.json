@@ -1,3 +1,27 @@
 {
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "onramp.pluginName": "Beli Kripto (Onramper)",
+  "onramp.tabTitle": "Beli Kripto",
+  "onramp.noPaymentMethod": "Tidak ada metode pembayaran yang tersedia",
+  "onramp.youReceive": "Anda menerima",
+  "onramp.youSpend": "Anda membayar",
+  "onramp.noPartner": "Tidak ada mitra yang tersedia",
+  "onramp.continue": "Lanjutkan",
+  "onramp.iframeTitle": "Widget Onramper",
+  "onramp.amountBetween": "Jumlah harus di antara {{currency}} {{min}} dan {{currency}} {{max}}",
+  "onramp.by": "oleh",
+  "onramp.payWith": "Bayar dengan",
+  "onramp.history": "Riwayat",
+  "onramp.pendingPurchase": "{{count}} pembelian tertunda",
+  "onramp.pendingPurchases": "{{count}} pembelian tertunda",
+  "onramp.statusCompleted": "selesai",
+  "onramp.quantity": "Jumlah",
+  "onramp.unknownNetwork": "Tidak diketahui",
+  "onramp.missingRequiredInfo": "Info wajib belum lengkap: {{list}}",
+  "onramp.missing.spendAmount": "jumlah pembayaran",
+  "onramp.missing.currency": "mata uang fiat",
+  "onramp.missing.network": "jaringan (chain)",
+  "onramp.missing.partner": "mitra",
+  "onramp.missing.paymentMethod": "metode pembayaran",
+  "onramp.missing.address": "alamat dompet"
 }

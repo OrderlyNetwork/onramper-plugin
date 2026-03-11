@@ -1,4 +1,5 @@
 import { FC, ReactNode, useRef, useState } from "react";
+import { useTranslation } from "@orderly.network/i18n";
 import {
   Input,
   InputProps,
@@ -32,6 +33,7 @@ export type QuantityInputProps = {
 } & Omit<InputProps, "onClear" | "suffix" | "prefix" | "onValueChange">;
 
 export const QuantityInput: FC<QuantityInputProps> = (props) => {
+  const { t } = useTranslation();
   const {
     classNames,
     label,
@@ -51,7 +53,7 @@ export const QuantityInput: FC<QuantityInputProps> = (props) => {
     <Box>
       <Box className="oui-absolute oui-top-1.5">
         <Text size="2xs" intensity={54}>
-          {label || "Quantity"}
+          {label || t("onramp.quantity")}
         </Text>
       </Box>
       {loading && (

@@ -1,3 +1,27 @@
 {
-  "common.ok": "OK"
+  "common.ok": "OK",
+  "onramp.pluginName": "Купити криптовалюту (Onramper)",
+  "onramp.tabTitle": "Купити криптовалюту",
+  "onramp.noPaymentMethod": "Немає доступного способу оплати",
+  "onramp.youReceive": "Ви отримуєте",
+  "onramp.youSpend": "Ви витрачаєте",
+  "onramp.noPartner": "Немає доступного партнера",
+  "onramp.continue": "Продовжити",
+  "onramp.iframeTitle": "Віджет Onramper",
+  "onramp.amountBetween": "Сума має бути між {{currency}} {{min}} та {{currency}} {{max}}",
+  "onramp.by": "від",
+  "onramp.payWith": "Оплатити за допомогою",
+  "onramp.history": "Історія",
+  "onramp.pendingPurchase": "{{count}} покупка в очікуванні",
+  "onramp.pendingPurchases": "{{count}} покупок в очікуванні",
+  "onramp.statusCompleted": "завершено",
+  "onramp.quantity": "Кількість",
+  "onramp.unknownNetwork": "Невідомо",
+  "onramp.missingRequiredInfo": "Відсутня обов'язкова інформація: {{list}}",
+  "onramp.missing.spendAmount": "сума до оплати",
+  "onramp.missing.currency": "фіатна валюта",
+  "onramp.missing.network": "мережа (chain)",
+  "onramp.missing.partner": "партнер",
+  "onramp.missing.paymentMethod": "спосіб оплати",
+  "onramp.missing.address": "адреса гаманця"
 }

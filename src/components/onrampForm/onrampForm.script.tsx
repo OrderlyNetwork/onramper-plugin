@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "@orderly.network/i18n";
 import type { API } from "@orderly.network/types";
 import type { FiatCurrency } from "../../constants";
 import { useOnrampCheckout } from "../../hooks/useOnrampCheckout";
@@ -76,6 +77,7 @@ export type OnrampFormState = {
 // --- Hook ---
 
 export const useOnrampFormScript = (): OnrampFormState => {
+  const { t } = useTranslation();
   // "You Spend" section
   const spend = useSpendAmount();
 
@@ -114,7 +116,11 @@ export const useOnrampFormScript = (): OnrampFormState => {
     const limits = paymentMethodLimits[selection.selectedPaymentMethod.id];
     if (!limits) return "";
     if (num < limits.min || num > limits.max) {
-      return `Amount should be in between ${spend.selectedCurrency} ${limits.min} and ${spend.selectedCurrency} ${limits.max}`;
+      return t("onramp.amountBetween", {
+        currency: spend.selectedCurrency,
+        min: limits.min,
+        max: limits.max,
+      });
     }
     return "";
   }, [
@@ -122,6 +128,7 @@ export const useOnrampFormScript = (): OnrampFormState => {
     spend.selectedCurrency,
     selection.selectedPaymentMethod,
     paymentMethodLimits,
+    t,
   ]);
 
   // Wallet address (handles AGW chain special case)

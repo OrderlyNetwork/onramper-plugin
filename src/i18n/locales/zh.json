@@ -1,3 +1,27 @@
 {
-  "common.ok": "好的"
+  "common.ok": "好的",
+  "onramp.pluginName": "购买加密货币（Onramper）",
+  "onramp.tabTitle": "购买加密货币",
+  "onramp.noPaymentMethod": "暂无可用的支付方式",
+  "onramp.youReceive": "你将收到",
+  "onramp.youSpend": "你将支付",
+  "onramp.noPartner": "暂无可用的合作方",
+  "onramp.continue": "继续",
+  "onramp.iframeTitle": "Onramper 小组件",
+  "onramp.amountBetween": "金额应在 {{currency}} {{min}} 与 {{currency}} {{max}} 之间",
+  "onramp.by": "由",
+  "onramp.payWith": "支付方式",
+  "onramp.history": "历史",
+  "onramp.pendingPurchase": "{{count}} 笔待处理购买",
+  "onramp.pendingPurchases": "{{count}} 笔待处理购买",
+  "onramp.statusCompleted": "已完成",
+  "onramp.quantity": "数量",
+  "onramp.unknownNetwork": "未知",
+  "onramp.missingRequiredInfo": "缺少必填信息：{{list}}",
+  "onramp.missing.spendAmount": "支付金额",
+  "onramp.missing.currency": "法币",
+  "onramp.missing.network": "网络（链）",
+  "onramp.missing.partner": "合作方",
+  "onramp.missing.paymentMethod": "支付方式",
+  "onramp.missing.address": "钱包地址"
 }
