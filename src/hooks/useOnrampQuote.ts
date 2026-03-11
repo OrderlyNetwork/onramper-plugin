@@ -2,11 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import { useSWR } from "@orderly.network/hooks";
 import type { OnrampPartner } from "../components/partnerSelect";
 import type { PaymentMethod } from "../components/paymentMethodSelect";
+import { useOnrampConfig } from "../context/OnrampConfigContext";
 
 const ONRAMPER_BASE = "https://api.onramper.com/quotes";
-export const ONRAMPER_AUTH = "pk_prod_01JWTGETB1H32953X7KR3DSH1S";
-// export const ONRAMPER_AUTH = "pk_prod_01HETEQF46GSK6BS5JWKDF31BT";
-export const ONRAMPER_SECRET = "01JWTGETB259KDVKEEVHBCGT7D"; // TODO: enter your Onramper signing secret key
 
 /** Maps chain IDs to Onramper USDC token identifiers. */
 const CHAIN_TO_ONRAMPER_TOKEN: Record<number, string> = {
@@ -68,11 +66,14 @@ export type OnrampQuoteItem = {
   recommendations?: string[];
 };
 
-const onrampFetcher = async (url: string): Promise<OnrampQuoteItem[]> => {
+const onrampFetcher = async (
+  url: string,
+  apiKey: string,
+): Promise<OnrampQuoteItem[]> => {
   const res = await fetch(url, {
     headers: {
       accept: "application/json",
-      Authorization: ONRAMPER_AUTH,
+      Authorization: apiKey,
     },
   });
   if (!res.ok) {
@@ -160,6 +161,7 @@ export function useOnrampQuotes(
   amount?: string,
   onramperToken?: string,
 ) {
+  const { apiKey } = useOnrampConfig();
   const token = onramperToken || "";
   const num = amount ? parseFloat(amount) : NaN;
   const effectiveAmount = !isNaN(num) && num > 0 ? num : DEFAULT_AMOUNT;
@@ -167,7 +169,7 @@ export function useOnrampQuotes(
 
   const { data, error, isLoading, isValidating } = useSWR<OnrampQuoteItem[]>(
     `onramp-quote-${currency.toLowerCase()}-${effectiveAmount}-${token}`,
-    () => onrampFetcher(url),
+    () => onrampFetcher(url, apiKey),
     {
       refreshInterval: 30_000,
       revalidateOnFocus: false,

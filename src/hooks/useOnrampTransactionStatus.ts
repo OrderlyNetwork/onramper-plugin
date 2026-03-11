@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useSWR } from "@orderly.network/hooks";
+import { useOnrampConfig } from "../context/OnrampConfigContext";
 
 export type OnrampTransactionStatus =
   | "new"
@@ -23,12 +24,12 @@ export type WebhookEvent = {
 
 const PENDING_STATUSES = new Set<OnrampTransactionStatus>(["pending", "new"]);
 
-// TODO: Replace with the actual deployed worker URL
-const WORKER_URL = "https://gentle-butterfly-db9c.han-eff.workers.dev/";
-
 export function useOnrampTransactionStatus(walletAddress: string | null) {
+  const { workerUrl } = useOnrampConfig();
   const { data, error } = useSWR<WebhookEvent[] | null>(
-    walletAddress ? `${WORKER_URL}?walletAddress=${walletAddress}` : null,
+    walletAddress && workerUrl
+      ? `${workerUrl}?walletAddress=${walletAddress}`
+      : null,
     async (url) => {
       const res = await fetch(url);
       if (!res.ok) {

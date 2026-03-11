@@ -2,7 +2,6 @@ import type { OnrampPartner } from "../components/partnerSelect";
 import type { PaymentMethod } from "../components/paymentMethodSelect";
 import type { FiatCurrency } from "../constants";
 import { ONRAMPER_WIDGET_BASE } from "../constants";
-import { ONRAMPER_AUTH, ONRAMPER_SECRET } from "../hooks/useOnrampQuote";
 import {
   arrangeStringAlphabetically,
   generateOnramperSignature,
@@ -15,6 +14,8 @@ export type BuildOnramperUrlParams = {
   selectedPaymentMethod: PaymentMethod | null;
   selectedPartner: OnrampPartner | null;
   address: string | undefined;
+  apiKey: string;
+  secretKey: string;
 };
 
 /**
@@ -28,10 +29,12 @@ export function buildOnramperIframeUrl({
   selectedPaymentMethod,
   selectedPartner,
   address,
+  apiKey,
+  secretKey,
 }: BuildOnramperUrlParams): string {
   const params = new URLSearchParams();
   params.set("themeName", "dark");
-  params.set("apiKey", ONRAMPER_AUTH);
+  params.set("apiKey", apiKey);
   params.set("mode", "buy");
   params.set("skipTransactionScreen", "true");
   params.set("txnRedirect", "true");
@@ -48,11 +51,11 @@ export function buildOnramperIframeUrl({
     const walletsValue = `${onramperToken}:${address}`.toLowerCase();
     params.set("wallets", walletsValue);
 
-    if (ONRAMPER_SECRET) {
+    if (secretKey) {
       const signContent = arrangeStringAlphabetically(
         `wallets=${walletsValue}`,
       );
-      const signature = generateOnramperSignature(ONRAMPER_SECRET, signContent);
+      const signature = generateOnramperSignature(secretKey, signContent);
       params.set("signature", signature);
     }
   }

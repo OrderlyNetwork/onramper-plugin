@@ -3,6 +3,7 @@ import { toast } from "@orderly.network/ui";
 import type { OnrampPartner } from "../components/partnerSelect";
 import type { PaymentMethod } from "../components/paymentMethodSelect";
 import type { FiatCurrency } from "../constants";
+import { useOnrampConfig } from "../context/OnrampConfigContext";
 import { buildOnramperIframeUrl } from "../utils/buildOnramperUrl";
 
 /**
@@ -28,6 +29,7 @@ export function useOnrampCheckout({
   address: string | undefined;
   isLoading: boolean;
 }) {
+  const { apiKey, secretKey } = useOnrampConfig();
   const [iframeDialogOpen, setIframeDialogOpen] = useState(false);
 
   const onramperIframeUrl = useMemo(
@@ -39,6 +41,8 @@ export function useOnrampCheckout({
         selectedPaymentMethod,
         selectedPartner,
         address,
+        apiKey,
+        secretKey,
       }),
     [
       spendAmount,
@@ -47,6 +51,8 @@ export function useOnrampCheckout({
       selectedPaymentMethod,
       selectedPartner,
       address,
+      apiKey,
+      secretKey,
     ],
   );
 
