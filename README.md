@@ -1,4 +1,4 @@
-# @orderly.network/onramp-plugin
+# @orderly.network/onramper-plugin
 
 A fiat-to-crypto on-ramp plugin for the Orderly SDK. Adds a **"Buy Crypto"** tab to the Transfer dialog, allowing users to purchase USDC with fiat currencies through [Onramper](https://onramper.com).
 
@@ -39,18 +39,18 @@ Track on-ramp transaction status (pending, completed, failed) with automatic pol
 ### Installation
 
 ```bash
-npm install @orderly.network/onramp-plugin
+npm install @orderly.network/onramper-plugin
 # or
-pnpm add @orderly.network/onramp-plugin
+pnpm add @orderly.network/onramper-plugin
 # or
-yarn add @orderly.network/onramp-plugin
+yarn add @orderly.network/onramper-plugin
 ```
 
 ### Register the Plugin
 
 ```tsx
-import { registerOnrampPlugin } from "@orderly.network/onramp-plugin";
-import "@orderly.network/onramp-plugin/dist/styles.css";
+import { registerOnrampPlugin } from "@orderly.network/onramper-plugin";
+import "@orderly.network/onramper-plugin/dist/styles.css";
 
 const plugins = [
   registerOnrampPlugin({
