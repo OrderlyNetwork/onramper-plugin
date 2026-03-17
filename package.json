@@ -1,7 +1,7 @@
 {
-  "name": "@orderly.network/onramp-plugin",
+  "name": "@orderly.network/onramper-plugin",
   "version": "0.0.1",
-  "description": "Onramp plugin for Orderly",
+  "description": "Onramper plugin for Orderly",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
