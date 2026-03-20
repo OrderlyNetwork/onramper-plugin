@@ -2,8 +2,6 @@
 
 A fiat-to-crypto on-ramp plugin for the Orderly SDK. Adds a **"Buy Crypto"** tab to the Transfer dialog, allowing users to purchase USDC with fiat currencies through [Onramper](https://onramper.com).
 
-<img src="docs/screenshots/buy-crypto-form.png" alt="Buy Crypto Form" width="400" />
-
 ## Features
 
 ### Fiat-to-Crypto Purchases
@@ -14,25 +12,19 @@ Buy USDC directly within the Orderly trading interface. Users enter a spend amou
 
 Receive USDC on multiple networks including Ethereum, Arbitrum, Base, Optimism, Polygon, Avalanche, zkSync, Solana, BNB Chain, Linea, and more.
 
-<img src="docs/screenshots/multi-chain-support.png" alt="Multi-Chain Support" width="200" />
-
 ### Live Quotes & Provider Comparison
 
 Real-time exchange rates from multiple on-ramp providers (Moonpay, Transak, Banxa, etc.), auto-refreshed every 30 seconds. Compare rates side-by-side and pick the best deal.
-
-<img src="docs/screenshots/live-quote.png" alt="Live Quote" width="400" />
 
 ### Payment Methods
 
 Supports multiple payment methods per provider — credit/debit cards, bank transfers, and more. Displays min/max spend limits for each method.
 
-<img src="docs/screenshots/multi-payment-methods.png" alt="Payment Methods" width="400" />
-
 ### Transaction History
 
 Track on-ramp transaction status (pending, completed, failed) with automatic polling. Requires the optional Cloudflare Worker backend.
 
-<img src="docs/screenshots/transaction-history.png" alt="Transaction History" width="400" />
+Screenshots are available in `docs/screenshots/`.
 
 ## Quick Start
 
