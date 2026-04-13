@@ -1,20 +1,20 @@
 import { FC, PropsWithChildren } from "react";
 import {
-  preloadDefaultResource,
+  AsyncResources,
   ExternalLocaleProvider,
   LocaleCode,
+  LocaleEnum,
 } from "@orderly.network/i18n";
-import { OnrampLocales, TOnrampLocales } from "./module";
+import { LocaleMessages } from "./module";
 
-preloadDefaultResource(OnrampLocales);
-
-const resources = (lang: LocaleCode) => {
-  return import(`./locales/${lang}.json`).then(
-    (res) => res.default as TOnrampLocales
-  );
+const resources: AsyncResources = async (lang: LocaleCode) => {
+  if (lang === LocaleEnum.en) {
+    return LocaleMessages;
+  }
+  return import(`./locales/${lang}.json`).then((res) => res.default);
 };
 
-export const OnrampLocaleProvider: FC<PropsWithChildren> = (props) => {
+export const LocaleProvider: FC<PropsWithChildren> = (props) => {
   return (
     <ExternalLocaleProvider resources={resources}>
       {props.children}
