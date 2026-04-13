@@ -9,23 +9,23 @@ importers:
   .:
     dependencies:
       '@orderly.network/hooks':
-        specifier: 3.0.0-beta.0
-        version: 3.0.0-beta.0(@types/react@18.3.28)(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)
+        specifier: 3.0.0-beta.2
+        version: 3.0.0-beta.2(@types/react@18.3.28)(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)
       '@orderly.network/i18n':
-        specifier: 3.0.0-beta.0
-        version: 3.0.0-beta.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+        specifier: 3.0.0-beta.2
+        version: 3.0.0-beta.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       '@orderly.network/plugin-core':
-        specifier: 3.0.0-beta.0
-        version: 3.0.0-beta.0(bufferutil@4.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)
+        specifier: 3.0.0-beta.2
+        version: 3.0.0-beta.2(bufferutil@4.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)
       '@orderly.network/types':
-        specifier: 3.0.0-beta.0
-        version: 3.0.0-beta.0
+        specifier: 3.0.0-beta.2
+        version: 3.0.0-beta.2
       '@orderly.network/ui':
-        specifier: 3.0.0-beta.0
-        version: 3.0.0-beta.0(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(bufferutil@4.1.0)(embla-carousel@8.6.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.19)(typescript@5.9.3)(utf-8-validate@6.0.6)
+        specifier: 3.0.0-beta.2
+        version: 3.0.0-beta.2(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(bufferutil@4.1.0)(embla-carousel@8.6.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.19)(typescript@5.9.3)(utf-8-validate@6.0.6)
       '@orderly.network/utils':
-        specifier: 3.0.0-beta.0
-        version: 3.0.0-beta.0
+        specifier: 3.0.0-beta.2
+        version: 3.0.0-beta.2
       ethers:
         specifier: ^6.15.0
         version: 6.16.0(bufferutil@4.1.0)(utf-8-validate@6.0.6)
@@ -600,36 +600,36 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@orderly.network/core@3.0.0-beta.0':
-    resolution: {integrity: sha512-0yQsphcL7zE4fj+AMVegW2C0dUya0KPIZA/d1W26iQKdGevf3q1JNhCrRqmkXoeAMbfF8Y05ZT1PxMASzdujiA==}
+  '@orderly.network/core@3.0.0-beta.2':
+    resolution: {integrity: sha512-90OmjrO18k7O8ppnFbtb2Q09tcSXPq7GJhLLdDz8jdKqA2j3NvryzdRP+/Uq2iom7oT1DEYM+WJ6fnPb62IF5Q==}
 
-  '@orderly.network/default-evm-adapter@3.0.0-beta.0':
-    resolution: {integrity: sha512-/p0DQfSAl0ElDtEu33TaJDtSbQfwjHnrouCMKxDQyzYL+6YxOMXEYJZ1XYrQDyuH3anyM2dyUq8HUKWcHzSqqA==}
+  '@orderly.network/default-evm-adapter@3.0.0-beta.2':
+    resolution: {integrity: sha512-LfhKhhajdO+dgbfVglPeZAyZgkrFhgoHweJNtX1+TQa82AfBcZT5mSq402cTmKFv7yLd0Bpju/KZQH4GJvLFow==}
 
-  '@orderly.network/default-solana-adapter@3.0.0-beta.0':
-    resolution: {integrity: sha512-+9kt0i32bZFsysXgfr2F81R69wIrOuFvRVVcVTOHh5H/qj99v8vQPnQS9OlpxzZTH348HqphPApt3SI9AVx1EQ==}
+  '@orderly.network/default-solana-adapter@3.0.0-beta.2':
+    resolution: {integrity: sha512-oRtZlceAlB3zAV7wR8KsW9XLVlqPBKXS//7HhOX62i1KsqArn9uHxdynCoJ//dcwAszdVz7Xgm8fEFkxmfBpkg==}
 
-  '@orderly.network/hooks@3.0.0-beta.0':
-    resolution: {integrity: sha512-4sq5fxvaPKUl87Mx2Zyr+9urGfYAPtCJE1FOc7q3UBbgGSAKaKiHXrseZe60/zfRzFtM6+/KRwOCcc4L1B5O5Q==}
+  '@orderly.network/hooks@3.0.0-beta.2':
+    resolution: {integrity: sha512-3SYg6iUMmBWq4xGLmwOC5sGUzLeRIOIq7Hp2m1rWkpNDJWtJQxFvL6viIFGiEUZ4f35kVvGOq+kk9WxHoW0/EQ==}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
 
-  '@orderly.network/i18n@3.0.0-beta.0':
-    resolution: {integrity: sha512-JLhzNxb3KjX/C6GEv4drOdxxaOI2Y24Q4PUSqFMBUPjVWhb9cIaMF6JaEbP/EpQSgilEog2830BwNAedVkChUg==}
+  '@orderly.network/i18n@3.0.0-beta.2':
+    resolution: {integrity: sha512-yr8CM/Etgls8OiHKLXqG5bI4w90eMmKKuWsjto6rHKTODvZri1YNIvCHrEVDacOIKolh279/JeNbmTX9nY+oKg==}
     hasBin: true
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
 
-  '@orderly.network/net@3.0.0-beta.0':
-    resolution: {integrity: sha512-KmBn88+9Ygruga6TcPr1DXgXy4bZSitp9lsw6xYQ+hf53yTNNhj2QYMM4MgB+LXQJQa8owc8/ok9s1GREdGG7w==}
+  '@orderly.network/net@3.0.0-beta.2':
+    resolution: {integrity: sha512-8yHgpfbey7I7H8JbIozEtxzE2k2LMuasc6Xv0aqppAOPuPGjdKVPJeyfgPEgX+gfI88ZYtYONbbnbePz/NmLpw==}
 
-  '@orderly.network/perp@5.0.0-beta.0':
-    resolution: {integrity: sha512-rNr4irVeRqSSt7/xRY7F/nSm756eLGIRcykjfjUp6OzHvVgnoMD+wfMeCmtMsPQAtiIOhCpWn0WtohKmJxvYFA==}
+  '@orderly.network/perp@5.0.0-beta.2':
+    resolution: {integrity: sha512-hIdiI5HpDXzqCZw61Zmix2BTxrL5Zpz5hH1dpgbpi5EVJs9jkdkZ2GH8vcrCcbs3Gz9SA+RLsKLHjaBdQPv34w==}
 
-  '@orderly.network/plugin-core@3.0.0-beta.0':
-    resolution: {integrity: sha512-/92Fg58+MNOHTIeEuIctL9ui6HAXGg91D7QwlG/pwJ2o8UlV+Qe3zUDKDrN4c74iB5408CGThzP29xKd/Yw7KA==}
+  '@orderly.network/plugin-core@3.0.0-beta.2':
+    resolution: {integrity: sha512-fjtel48/7aEA+7X/wxOqtCBmipMPz0rvTEjjBzHTOhDJg9W3VatZbbHaIkDgMJXEE8yf1q98DWEq+kBxgai1xg==}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
@@ -637,20 +637,20 @@ packages:
   '@orderly.network/ts-config@0.0.2':
     resolution: {integrity: sha512-odjE81obtFexk6oYvWtHDvWx3rKzDs/rTDy9Fkw5qcW6Xj8mmPLu3hUQOBjP84harHal5Y6pg/CQk1XE7uCmzw==}
 
-  '@orderly.network/types@3.0.0-beta.0':
-    resolution: {integrity: sha512-NY8BPi3YklTvujdxS8+brNfECEXvBH1XEfP9JNQeoYhg8gJboyb6JPMmbCq/ykzk3yT/uaMIcXQ8MuCBcoV9Zw==}
+  '@orderly.network/types@3.0.0-beta.2':
+    resolution: {integrity: sha512-g/f+Z6a08BmMoPf9SykVN2dWCsf9WSSNeVqhef9mjFcDF54D+ajBLMQs+9G6a51nJd9E2dOyzXtzPtzKz/Gh7w==}
 
-  '@orderly.network/ui@3.0.0-beta.0':
-    resolution: {integrity: sha512-9kKTrqiqz3RQLCRPrw70sAignFTYf9t8Nr15qipFrvwrIuPq3bFdovFu84Bi9E3uzkwS+hmAJccj5J8qGuw0YQ==}
+  '@orderly.network/ui@3.0.0-beta.2':
+    resolution: {integrity: sha512-3ZZhdqfUJQfrszfuclI1ODxvVCZtOJE8tUIlNdBur1gWcXm259f4STmwmFm49WzRaJksivPhymC1m81JatKLeA==}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
 
-  '@orderly.network/utils@3.0.0-beta.0':
-    resolution: {integrity: sha512-kcG5Uk3N0fXf5rn/9VyBkQzBLauWVgAvkcpMoFZoxbey42TvaeNGJQOYspYfasH0wKlBX2x4bJGKNhPc2szEUg==}
+  '@orderly.network/utils@3.0.0-beta.2':
+    resolution: {integrity: sha512-maivXWj/uzalJ1l18DgPjFsCapEcy7LgZT+9OQtTfDeVZ5xZbcpwU7XGISnaDQUVCmnOgkKiL6rQRiL11dAUFQ==}
 
-  '@orderly.network/web3-provider-ethers@3.0.0-beta.0':
-    resolution: {integrity: sha512-14tDBvfEkaPPBfizsi0fvoQq+IGW8H0jhyfrB4+z2ef3e3MsusitXpQjXiXQ8/7d6jwjgdqyq9gmlPFoJaIZ/g==}
+  '@orderly.network/web3-provider-ethers@3.0.0-beta.2':
+    resolution: {integrity: sha512-9pIFHj5K5nNZUoBMEqX98RZwki9qj5nEEZ8hIbhSOIEx0XO5Aw2DFSZYSmx6PVd1x2IhJdwcJaMN323Z+utvTA==}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -1846,6 +1846,10 @@ packages:
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
 
+  cliui@8.0.1:
+    resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
+    engines: {node: '>=12'}
+
   clone-response@1.0.3:
     resolution: {integrity: sha512-ROoL94jJH2dUVML2Y/5PEDNaSHgeOdSDicUyS7izcF63G6sTc/FTjLub4b8Il9S8S0beOfYt0TaA5qvFK+w0wA==}
 
@@ -2054,6 +2058,10 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  escalade@3.2.0:
+    resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
+    engines: {node: '>=6'}
+
   escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
@@ -2195,6 +2203,10 @@ packages:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
 
+  fs-extra@11.3.4:
+    resolution: {integrity: sha512-CTXd6rk/M3/ULNQj8FBqBWHYBVYybQ3VPBw0xGKFe3tuH7ytT6ACnvzpIQ3UZtB8yvUKC2cXn1a+x+5EVQLovA==}
+    engines: {node: '>=14.14'}
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -2206,6 +2218,10 @@ packages:
   generator-function@2.0.1:
     resolution: {integrity: sha512-SFdFmIJi+ybC0vjlHN0ZGVGHc3lgE0DxPAT0djjVg+kjOnSqclqmj0KQ7ykTOLP6YxoqOvuAODGdcHJn+43q3g==}
     engines: {node: '>= 0.4'}
+
+  get-caller-file@2.0.5:
+    resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
+    engines: {node: 6.* || 8.* || >= 10.*}
 
   get-intrinsic@1.3.0:
     resolution: {integrity: sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ==}
@@ -2256,6 +2272,9 @@ packages:
   got@11.8.6:
     resolution: {integrity: sha512-6tfZ91bOr7bOXnK7PRDCGBLa1H4U080YHNaAQ2KsMGlLEzRbk44nsZF2E1IeRc3vtJHPVbKCYgdFbaGO2ljd8g==}
     engines: {node: '>=10.19.0'}
+
+  graceful-fs@4.2.11:
+    resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
@@ -2427,6 +2446,9 @@ packages:
 
   json-stringify-safe@5.0.1:
     resolution: {integrity: sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA==}
+
+  jsonfile@6.2.0:
+    resolution: {integrity: sha512-FGuPw30AdOIUTRMC2OMRtQV+jkVj2cfPqSeWXv1NEAJ1qZ5zb1X6z1mFhbfOB/iy3ssJCD+3KuZ8r8C3uVFlAg==}
 
   keccak@3.0.4:
     resolution: {integrity: sha512-3vKuW0jV8J3XNTzvfyicFR5qvxrSAGl7KIhvgOu5cmWwM7tZRj3fMbj/pfIf4be7aznbc+prBWGjywox/g2Y6Q==}
@@ -2898,6 +2920,10 @@ packages:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
 
+  require-directory@2.1.1:
+    resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
+    engines: {node: '>=0.10.0'}
+
   resolve-alpn@1.2.1:
     resolution: {integrity: sha512-0a1F4l73/ZFZOakJnQ3FvkJ2+gSTQWz/r2KE5OdDY0TxPm5h4GkqkWWfM47T7HsbnOtcJVEF4epCVy6u7Q3K+g==}
 
@@ -3233,6 +3259,10 @@ packages:
   undici-types@7.18.2:
     resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
+  universalify@2.0.1:
+    resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
+    engines: {node: '>= 10.0.0'}
+
   use-callback-ref@1.3.3:
     resolution: {integrity: sha512-jQL3lRnocaFtu3V00JToYz/4QkNWswxijDaCVNZRiRTO3HQDLsdu1ZtmIUvV4yPp+rvWm5j0y0TG/S61cuijTg==}
     engines: {node: '>=10'}
@@ -3377,8 +3407,20 @@ packages:
       utf-8-validate:
         optional: true
 
+  y18n@5.0.8:
+    resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
+    engines: {node: '>=10'}
+
   yallist@2.1.2:
     resolution: {integrity: sha512-ncTzHV7NvsQZkYe1DW7cbDLm0YpzHmZF5r/iyP3ZnQtMiJ+pjzisCiMNI+Sj+xQF5pXhSHxSB3uDbsBTzY/c2A==}
+
+  yargs-parser@21.1.1:
+    resolution: {integrity: sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==}
+    engines: {node: '>=12'}
+
+  yargs@17.7.2:
+    resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
+    engines: {node: '>=12'}
 
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
@@ -4176,10 +4218,10 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
 
-  '@orderly.network/core@3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)':
+  '@orderly.network/core@3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)':
     dependencies:
       '@noble/ed25519': 2.3.0
-      '@orderly.network/types': 3.0.0-beta.0
+      '@orderly.network/types': 3.0.0-beta.2
       '@solana/web3.js': 1.98.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
       bs58: 5.0.0
       ethers: 6.16.0(bufferutil@4.1.0)(utf-8-validate@6.0.6)
@@ -4192,11 +4234,11 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@orderly.network/default-evm-adapter@3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)':
+  '@orderly.network/default-evm-adapter@3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)':
     dependencies:
       '@noble/ed25519': 2.3.0
-      '@orderly.network/core': 3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/types': 3.0.0-beta.0
+      '@orderly.network/core': 3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/types': 3.0.0-beta.2
       bs58: 5.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -4204,14 +4246,14 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@orderly.network/default-solana-adapter@3.0.0-beta.0(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(typescript@5.9.3)(utf-8-validate@6.0.6)':
+  '@orderly.network/default-solana-adapter@3.0.0-beta.2(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(typescript@5.9.3)(utf-8-validate@6.0.6)':
     dependencies:
       '@coral-xyz/anchor': 0.29.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
       '@layerzerolabs/lz-solana-sdk-v2': 2.3.45-oft-rc.0(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(typescript@5.9.3)(utf-8-validate@6.0.6)
       '@layerzerolabs/lz-v2-utilities': 2.3.45-oft-rc.0
       '@noble/ed25519': 2.3.0
-      '@orderly.network/core': 3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/types': 3.0.0-beta.0
+      '@orderly.network/core': 3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/types': 3.0.0-beta.2
       '@solana/spl-token': 0.4.8(@solana/web3.js@1.98.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6))(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.3)(utf-8-validate@6.0.6)
       '@solana/wallet-adapter-base': 0.9.23(@solana/web3.js@1.98.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6))
       '@solana/web3.js': 1.98.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
@@ -4227,19 +4269,19 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@orderly.network/hooks@3.0.0-beta.0(@types/react@18.3.28)(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)':
+  '@orderly.network/hooks@3.0.0-beta.2(@types/react@18.3.28)(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)':
     dependencies:
       '@akamfoad/qr': 0.4.0
       '@amplitude/analytics-browser': 2.11.13
-      '@orderly.network/core': 3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/default-evm-adapter': 3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/default-solana-adapter': 3.0.0-beta.0(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/net': 3.0.0-beta.0
-      '@orderly.network/perp': 5.0.0-beta.0
-      '@orderly.network/plugin-core': 3.0.0-beta.0(bufferutil@4.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/types': 3.0.0-beta.0
-      '@orderly.network/utils': 3.0.0-beta.0
-      '@orderly.network/web3-provider-ethers': 3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/core': 3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/default-evm-adapter': 3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/default-solana-adapter': 3.0.0-beta.2(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(got@11.8.6)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/net': 3.0.0-beta.2
+      '@orderly.network/perp': 5.0.0-beta.2
+      '@orderly.network/plugin-core': 3.0.0-beta.2(bufferutil@4.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/types': 3.0.0-beta.2
+      '@orderly.network/utils': 3.0.0-beta.2
+      '@orderly.network/web3-provider-ethers': 3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
       immer: 10.2.0
       lodash: 4.17.23
       ramda: 0.29.1
@@ -4259,31 +4301,33 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@orderly.network/i18n@3.0.0-beta.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)':
+  '@orderly.network/i18n@3.0.0-beta.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)':
     dependencies:
+      fs-extra: 11.3.4
       i18next: 24.2.3(typescript@5.9.3)
       i18next-browser-languagedetector: 8.2.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-i18next: 15.7.4(i18next@24.2.3(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+      yargs: 17.7.2
     transitivePeerDependencies:
       - react-native
       - typescript
 
-  '@orderly.network/net@3.0.0-beta.0':
+  '@orderly.network/net@3.0.0-beta.2':
     dependencies:
       eventemitter3: 5.0.4
 
-  '@orderly.network/perp@5.0.0-beta.0':
+  '@orderly.network/perp@5.0.0-beta.2':
     dependencies:
-      '@orderly.network/types': 3.0.0-beta.0
-      '@orderly.network/utils': 3.0.0-beta.0
+      '@orderly.network/types': 3.0.0-beta.2
+      '@orderly.network/utils': 3.0.0-beta.2
 
-  '@orderly.network/plugin-core@3.0.0-beta.0(bufferutil@4.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)':
+  '@orderly.network/plugin-core@3.0.0-beta.2(bufferutil@4.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)':
     dependencies:
-      '@orderly.network/core': 3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/types': 3.0.0-beta.0
-      '@orderly.network/utils': 3.0.0-beta.0
+      '@orderly.network/core': 3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/types': 3.0.0-beta.2
+      '@orderly.network/utils': 3.0.0-beta.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-error-boundary: 4.1.2(react@18.3.1)
@@ -4295,14 +4339,14 @@ snapshots:
 
   '@orderly.network/ts-config@0.0.2': {}
 
-  '@orderly.network/types@3.0.0-beta.0':
+  '@orderly.network/types@3.0.0-beta.2':
     dependencies:
       superstruct: 2.0.2
 
-  '@orderly.network/ui@3.0.0-beta.0(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(bufferutil@4.1.0)(embla-carousel@8.6.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.19)(typescript@5.9.3)(utf-8-validate@6.0.6)':
+  '@orderly.network/ui@3.0.0-beta.2(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(bufferutil@4.1.0)(embla-carousel@8.6.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.19)(typescript@5.9.3)(utf-8-validate@6.0.6)':
     dependencies:
-      '@orderly.network/plugin-core': 3.0.0-beta.0(bufferutil@4.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/utils': 3.0.0-beta.0
+      '@orderly.network/plugin-core': 3.0.0-beta.2(bufferutil@4.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/utils': 3.0.0-beta.2
       '@radix-ui/react-avatar': 1.1.11(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-checkbox': 1.3.3(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-collapsible': 1.1.12(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4341,16 +4385,16 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@orderly.network/utils@3.0.0-beta.0':
+  '@orderly.network/utils@3.0.0-beta.2':
     dependencies:
-      '@orderly.network/types': 3.0.0-beta.0
+      '@orderly.network/types': 3.0.0-beta.2
       dayjs: 1.11.19
       decimal.js-light: 2.5.1
 
-  '@orderly.network/web3-provider-ethers@3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)':
+  '@orderly.network/web3-provider-ethers@3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)':
     dependencies:
-      '@orderly.network/default-evm-adapter': 3.0.0-beta.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
-      '@orderly.network/types': 3.0.0-beta.0
+      '@orderly.network/default-evm-adapter': 3.0.0-beta.2(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@orderly.network/types': 3.0.0-beta.2
       ethers: 6.16.0(bufferutil@4.1.0)(utf-8-validate@6.0.6)
       ethers-decode-error: 2.1.3(ethers@6.16.0(bufferutil@4.1.0)(utf-8-validate@6.0.6))
     transitivePeerDependencies:
@@ -5619,6 +5663,12 @@ snapshots:
 
   client-only@0.0.1: {}
 
+  cliui@8.0.1:
+    dependencies:
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      wrap-ansi: 7.0.0
+
   clone-response@1.0.3:
     dependencies:
       mimic-response: 1.0.1
@@ -5842,6 +5892,8 @@ snapshots:
       '@esbuild/win32-ia32': 0.27.3
       '@esbuild/win32-x64': 0.27.3
 
+  escalade@3.2.0: {}
+
   escape-string-regexp@5.0.0: {}
 
   ethereum-blockies-base64@1.0.2:
@@ -6058,12 +6110,20 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
+  fs-extra@11.3.4:
+    dependencies:
+      graceful-fs: 4.2.11
+      jsonfile: 6.2.0
+      universalify: 2.0.1
+
   fsevents@2.3.3:
     optional: true
 
   function-bind@1.1.2: {}
 
   generator-function@2.0.1: {}
+
+  get-caller-file@2.0.5: {}
 
   get-intrinsic@1.3.0:
     dependencies:
@@ -6129,6 +6189,8 @@ snapshots:
       lowercase-keys: 2.0.0
       p-cancelable: 2.1.1
       responselike: 2.0.1
+
+  graceful-fs@4.2.11: {}
 
   has-flag@4.0.0: {}
 
@@ -6299,6 +6361,12 @@ snapshots:
   json-buffer@3.0.1: {}
 
   json-stringify-safe@5.0.1: {}
+
+  jsonfile@6.2.0:
+    dependencies:
+      universalify: 2.0.1
+    optionalDependencies:
+      graceful-fs: 4.2.11
 
   keccak@3.0.4:
     dependencies:
@@ -6714,6 +6782,8 @@ snapshots:
 
   readdirp@4.1.2: {}
 
+  require-directory@2.1.1: {}
+
   resolve-alpn@1.2.1: {}
 
   resolve-from@5.0.0: {}
@@ -7091,6 +7161,8 @@ snapshots:
 
   undici-types@7.18.2: {}
 
+  universalify@2.0.1: {}
+
   use-callback-ref@1.3.3(@types/react@18.3.28)(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -7218,7 +7290,21 @@ snapshots:
       bufferutil: 4.1.0
       utf-8-validate: 6.0.6
 
+  y18n@5.0.8: {}
+
   yallist@2.1.2: {}
+
+  yargs-parser@21.1.1: {}
+
+  yargs@17.7.2:
+    dependencies:
+      cliui: 8.0.1
+      escalade: 3.2.0
+      get-caller-file: 2.0.5
+      require-directory: 2.1.1
+      string-width: 4.2.3
+      y18n: 5.0.8
+      yargs-parser: 21.1.1
 
   yocto-queue@0.1.0: {}
 
