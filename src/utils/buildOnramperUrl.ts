@@ -37,7 +37,7 @@ export function buildOnramperIframeUrl({
   params.set("apiKey", apiKey);
   params.set("mode", "buy");
   params.set("skipTransactionScreen", "true");
-  params.set("txnRedirect", "true");
+  params.set("txnRedirect", "false");
 
   if (spendAmount) params.set("txnAmount", spendAmount);
   if (selectedCurrency) params.set("txnFiat", selectedCurrency.toLowerCase());

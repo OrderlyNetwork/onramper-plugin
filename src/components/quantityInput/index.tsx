@@ -43,6 +43,7 @@ export const QuantityInput: FC<QuantityInputProps> = (props) => {
     placeholder,
     suffix,
     error,
+    onBlur,
     ...rest
   } = props;
 

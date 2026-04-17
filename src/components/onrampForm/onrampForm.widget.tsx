@@ -7,6 +7,6 @@ export type OnrampFormWidgetProps = {
 };
 
 export const OnrampForm: FC<OnrampFormWidgetProps> = (props) => {
-  const state = useOnrampFormScript();
+  const state = useOnrampFormScript(props.close);
   return <OnrampFormUI {...state} {...props} />;
 };

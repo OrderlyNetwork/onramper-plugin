@@ -3,6 +3,17 @@ import type { OnrampPartner } from "../components/partnerSelect";
 import type { FiatCurrency } from "../constants";
 
 /**
+ * Converts fiat spend into received token quantity using the current partner rate.
+ */
+function toReceiveQuantity(amount: string, rate?: number): string {
+  const parsedAmount = parseFloat(amount);
+  if (isNaN(parsedAmount) || parsedAmount <= 0 || !rate || rate <= 0) {
+    return "";
+  }
+  return (parsedAmount / rate).toFixed(2);
+}
+
+/**
  * Derives the "You Receive" section display values from spend + selection state.
  * Encapsulates receiveQuantity, receiveQuantityPlaceholder, and exchangeRateText.
  */
@@ -21,20 +32,12 @@ export function useReceiveDisplay({
 }) {
   const receiveQuantity = useMemo(() => {
     if (spendAmountError) return "";
-    const num = parseFloat(spendAmount);
-    if (isNaN(num) || num <= 0 || !selectedPartner) return "";
-    if (selectedPartner.payout > 0) return selectedPartner.payout.toFixed(2);
-    return "0";
-  }, [spendAmount, spendAmountError, selectedPartner]);
+    return toReceiveQuantity(spendAmount, selectedPartner?.rate);
+  }, [spendAmount, spendAmountError, selectedPartner?.rate]);
 
   const receiveQuantityPlaceholder = useMemo(() => {
-    if (!selectedPartner) return "";
-    if (selectedPartner.payout > 0) return selectedPartner.payout.toFixed(2);
-    if (!selectedPartner.rate) return "";
-    const num = parseFloat(effectiveSpendAmountForQuote);
-    if (!isNaN(num) && num > 0) return (num / selectedPartner.rate).toFixed(2);
-    return "";
-  }, [selectedPartner, effectiveSpendAmountForQuote]);
+    return toReceiveQuantity(effectiveSpendAmountForQuote, selectedPartner?.rate);
+  }, [effectiveSpendAmountForQuote, selectedPartner?.rate]);
 
   const exchangeRateText = useMemo(() => {
     if (!selectedPartner?.rate) return "";

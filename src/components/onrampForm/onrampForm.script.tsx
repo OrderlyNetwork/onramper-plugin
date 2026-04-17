@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "@orderly.network/i18n";
-import type { API } from "@orderly.network/types";
+import type { API, NetworkId } from "@orderly.network/types";
 import type { FiatCurrency } from "../../constants";
 import { useOnrampCheckout } from "../../hooks/useOnrampCheckout";
 import { useOnrampQuotes, getOnramperToken } from "../../hooks/useOnrampQuote";
@@ -14,6 +14,8 @@ import { useChainSelect } from "../chainSelect/useChainSelect";
 import type { CurrentChain } from "../chainSelect/useChainSelect";
 import type { OnrampPartner } from "../partnerSelect";
 import type { PaymentMethod } from "../paymentMethodSelect";
+import { useQuery, usePrivateQuery, useConfig } from "@orderly.network/hooks";
+import { Arbitrum, ArbitrumSepolia } from "@orderly.network/types";
 
 // --- State Return Type ---
 
@@ -58,13 +60,9 @@ export type OnrampFormState = {
   /** Error message when spend amount is outside min/max limits. */
   spendAmountError: string;
 
-  // Onramper checkout (iframe)
+  // Onramper checkout
   onContinue: () => void;
   isContinueDisabled: boolean;
-  // Iframe dialog checkout
-  iframeDialogOpen: boolean;
-  setIframeDialogOpen: (open: boolean) => void;
-  onramperIframeUrl: string;
 
   // Transaction Status
   statusData: WebhookEvent | null | undefined;
@@ -76,17 +74,26 @@ export type OnrampFormState = {
 
 // --- Hook ---
 
-export const useOnrampFormScript = (): OnrampFormState => {
+export const useOnrampFormScript = (close?: () => void): OnrampFormState => {
   const { t } = useTranslation();
   // "You Spend" section
   const spend = useSpendAmount();
 
+  const networkId = useConfig("networkId") as NetworkId;
+
+  const receiveChainId = useMemo(() => {
+    return networkId === "mainnet" ? Arbitrum.id : ArbitrumSepolia.id;
+  }, [networkId]);
+
   // "You Receive" — chain + network token
   const { chains, currentChain, onChainChange } = useChainSelect();
+
   const onramperToken = useMemo(
     () => (currentChain ? getOnramperToken(currentChain.id) : undefined),
     [currentChain],
   );
+
+
 
   // Quote fetching (paymentMethodLimits accumulated across fetches)
   const {
@@ -98,7 +105,6 @@ export const useOnrampFormScript = (): OnrampFormState => {
     isValidating,
   } = useOnrampQuotes(
     spend.selectedCurrency,
-    spend.effectiveSpendAmountForQuote,
     onramperToken,
   );
 
@@ -107,6 +113,14 @@ export const useOnrampFormScript = (): OnrampFormState => {
     partners,
     getPaymentMethodsForPartner,
   );
+
+  // const SUPPORTED_CHAIN_ID = ArbitrumSepolia.id;
+
+  const { data: receiverAddress, isLoading: isReceiverAddressLoading } = usePrivateQuery<{ receiver_address: string }>(
+    `/v1/client/asset/receiver_address?chain_id=${receiveChainId}`,
+  );
+
+  // console.log("receiverAddress", receiverAddress);
 
   // Spend amount validation against accumulated payment method limits
   const spendAmountError = useMemo(() => {
@@ -134,13 +148,13 @@ export const useOnrampFormScript = (): OnrampFormState => {
   // Wallet address (handles AGW chain special case)
   const { wallet, address } = useWalletAddress();
 
-  // Transaction history + polling
+  // Transaction history + polling (by receiver address, not wallet address)
   const {
     transactions,
     pendingTransactions,
     historyTransactions,
     isLoading: isStatusLoading,
-  } = useOnrampTransactionStatus(address ?? null);
+  } = useOnrampTransactionStatus(receiverAddress?.receiver_address ?? null);
 
   // Display values for "You Receive" section
   const { receiveQuantity, receiveQuantityPlaceholder, exchangeRateText } =
@@ -160,8 +174,10 @@ export const useOnrampFormScript = (): OnrampFormState => {
     onramperToken,
     selectedPartner: selection.selectedPartner,
     selectedPaymentMethod: selection.selectedPaymentMethod,
-    address,
+    address: receiverAddress?.receiver_address as string,
     isLoading,
+    isReceiverAddressLoading: isReceiverAddressLoading,
+    close,
   });
 
   return {

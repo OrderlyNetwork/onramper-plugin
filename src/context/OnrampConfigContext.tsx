@@ -13,6 +13,7 @@ export function OnrampConfigProvider({
   children,
 }: {
   config: OnrampConfig;
+  // state: ApplicationState;
   children: React.ReactNode;
 }) {
   return (

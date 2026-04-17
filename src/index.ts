@@ -3,3 +3,5 @@ export * from "./components/icons";
 export { useOnrampAvailability } from "./hooks/useOnrampQuote";
 export { registerOnrampPlugin } from "./plugin";
 export type { OnrampPluginOptions } from "./plugin";
+
+import "./styles.css";

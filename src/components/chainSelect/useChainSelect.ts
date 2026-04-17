@@ -8,7 +8,12 @@ import {
   useWalletConnector,
 } from "@orderly.network/hooks";
 import { useTranslation } from "@orderly.network/i18n";
-import { API, NetworkId } from "@orderly.network/types";
+import {
+  API,
+  Arbitrum,
+  ArbitrumSepolia,
+  NetworkId,
+} from "@orderly.network/types";
 import { toast } from "@orderly.network/ui";
 import { int2hex, praseChainIdToNumber } from "@orderly.network/utils";
 import { ONRAMP_SUPPORTED_CHAIN_IDS } from "../../hooks/useOnrampQuote";
@@ -37,20 +42,28 @@ export function useChainSelect() {
     [allChains],
   );
 
-  const currentChain = useMemo(() => {
-    const chainId = connectedChain
-      ? praseChainIdToNumber(connectedChain.id)
-      : parseInt(linkDeviceStorage?.chainId);
+  const currentChain = useMemo<CurrentChain | null>(() => {
+    // const chainId = connectedChain
+    //   ? praseChainIdToNumber(connectedChain.id)
+    //   : parseInt(linkDeviceStorage?.chainId);
 
-    if (!chainId) return null;
+    // if (!chainId) return null;
 
-    const chain = findByChainId(chainId);
+    // const chain = findByChainId(chainId);
 
     return {
-      ...connectedChain,
-      id: chainId,
-      info: chain!,
-    } as CurrentChain;
+      // ...ArbitrumSepolia,
+      ...Arbitrum,
+      /** Ensure compatibility with CurrentChain by always providing wallet namespace. */
+      namespace:
+        connectedChain?.namespace ?? ("evm" as ConnectedChain["namespace"]),
+    };
+
+    // return {
+    //   ...connectedChain,
+    //   id: chainId,
+    //   info: chain!,
+    // } as CurrentChain;
   }, [findByChainId, connectedChain, linkDeviceStorage]);
 
   const onChainChange = useCallback(

@@ -7,10 +7,9 @@ import {
   Button,
   cn,
   textVariants,
-  WalletIcon,
   Spinner,
-  DialogPortal,
 } from "@orderly.network/ui";
+
 import { formatCompact } from "../../constants";
 import { ChainSelect } from "../chainSelect";
 import { ExchangeDivider } from "../exchangeDivider";
@@ -51,14 +50,29 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
     isQuoteLoading,
     onContinue,
     isContinueDisabled,
-    iframeDialogOpen,
-    onramperIframeUrl,
     quoteIsValidating,
     spendAmountError,
     transactions,
     pendingTransactions,
   } = props;
   const formRef = useRef<HTMLDivElement>(null);
+
+  // const { appIcons } = useAppConfig();
+
+  // const icon = useMemo(() => {
+  //   const { secondary } = appIcons || {};
+
+  //   if (secondary?.img) {
+  //     return <img src={secondary?.img} className="oui-size-5" />;
+  //   }
+
+  //   if (secondary?.component) {
+  //     return <>{secondary.component}</>;
+  //   }
+
+  //   return null;
+  // }, [appIcons]);
+
 
   return (
     <Box id="oui-onramp-form" className={textVariants({ weight: "semibold" })}>
@@ -150,17 +164,18 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
             </Text>
 
             <Flex gapX={1}>
-              <WalletIcon size={"2xs"} name={wallet?.label ?? ""} />
+              {/* {icon} */}
+              {/* <WalletIcon size={"2xs"} name={wallet?.label ?? ""} />
               <Text.formatted size="sm" intensity={54} rule="address">
                 {address}
-              </Text.formatted>
+              </Text.formatted> */}
             </Flex>
           </Flex>
 
           <Flex direction="column" className="oui-w-full" gap={1}>
             {/* Row 1: ChainSelect (left) + Read-only Quantity (right) */}
-            <Flex className="oui-w-full" gap={1}>
-              <Box className="oui-min-w-0 oui-flex-1">
+            <Flex className="oui-w-full">
+              {/*<Box className="oui-min-w-0 oui-flex-1">
                 <ChainSelect
                   chains={chains}
                   value={selectedChain!}
@@ -168,7 +183,7 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
                   wrongNetwork={!selectedChain}
                   className="oui-w-full oui-rounded-[4px] oui-rounded-tl-xl"
                 />
-              </Box>
+              </Box>*/}
               <Box className="oui-min-w-0 oui-flex-1">
                 <QuantityInput
                   readOnly
@@ -238,20 +253,6 @@ export const OnrampFormUI: FC<OnrampFormProps> = (props) => {
           </Box>
         </Flex>
       </Flex>
-
-      {/* ════════════════ ONRAMPER IFRAME FULLSCREEN ════════════════ */}
-      {iframeDialogOpen && (
-        <DialogPortal>
-          <div className="oui-fixed oui-inset-0 oui-z-50 oui-flex oui-flex-col oui-bg-black/80">
-            <iframe
-              src={onramperIframeUrl}
-              title={t("onramp.iframeTitle")}
-              allow="accelerometer; autoplay; camera; gyroscope; payment; microphone"
-              className="oui-w-full oui-flex-1 oui-border-none"
-            />
-          </div>
-        </DialogPortal>
-      )}
     </Box>
   );
 };

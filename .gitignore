@@ -27,3 +27,5 @@ esm/
 .npmrc
 
 test-scripts/
+*storybook.log
+storybook-static

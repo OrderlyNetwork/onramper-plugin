@@ -5,12 +5,13 @@ import type { FiatCurrency } from "../constants";
 /**
  * Manages the "You Spend" section state:
  * - Selected fiat currency and raw amount input
- * - 500ms debounce before propagating the amount to quote fetching
- * - `effectiveSpendAmountForQuote`: the debounced amount passed to the quotes
- *   hook, falling back to the first preset when the input is empty/invalid
+ * - 500ms debounce before propagating the amount to dependent display state
+ * - `effectiveSpendAmountForQuote`: the debounced amount used by downstream
+ *   display logic, falling back to the first preset when the input is
+ *   empty/invalid
  *
  * Spend amount validation (min/max limits) is computed in the orchestrator
- * because the limits come from the same quotes hook that needs this amount.
+ * so the form can reuse the cached limits fetched for the selected currency.
  */
 export function useSpendAmount() {
   const [selectedCurrency, setSelectedCurrency] = useState<FiatCurrency>("USD");
@@ -27,7 +28,7 @@ export function useSpendAmount() {
   }, [spendAmount]);
 
   // When the input is empty or invalid, fall back to the first preset so the
-  // quotes hook always has a meaningful amount to fetch with
+  // receive-side placeholder still has a stable reference amount.
   const effectiveSpendAmountForQuote = useMemo(() => {
     const num = parseFloat(debouncedSpendAmount);
     if (!isNaN(num) && num > 0) return debouncedSpendAmount;
@@ -35,9 +36,9 @@ export function useSpendAmount() {
   }, [debouncedSpendAmount, selectedCurrency]);
 
   const onCurrencyChange = (currency: FiatCurrency) => {
+    // Preserve the current input so currency switches do not clear the paired
+    // receive-side display and create mismatched form state.
     setSelectedCurrency(currency);
-    setSpendAmount("");
-    setDebouncedSpendAmount(PRESET_AMOUNTS[currency][0].toString());
   };
 
   return {

@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useMemo, useCallback, useRef, useEffect } from "react";
 import { toast } from "@orderly.network/ui";
 import { useTranslation } from "@orderly.network/i18n";
 import type { OnrampPartner } from "../components/partnerSelect";
@@ -9,7 +9,8 @@ import { buildOnramperIframeUrl } from "../utils/buildOnramperUrl";
 
 /**
  * Manages the onramper checkout flow:
- * iframe URL construction, dialog open state, continue button state, and submit handler.
+ * creates an iframe overlay via DOM API appended to document.body,
+ * escaping any parent dialog stacking context.
  */
 export function useOnrampCheckout({
   spendAmount,
@@ -20,6 +21,8 @@ export function useOnrampCheckout({
   selectedPaymentMethod,
   address,
   isLoading,
+  isReceiverAddressLoading,
+  close,
 }: {
   spendAmount: string;
   selectedCurrency: FiatCurrency;
@@ -29,34 +32,21 @@ export function useOnrampCheckout({
   selectedPaymentMethod: PaymentMethod | null;
   address: string | undefined;
   isLoading: boolean;
+  isReceiverAddressLoading?: boolean;
+  close?: () => void;
 }) {
   const { t } = useTranslation();
   const { apiKey, secretKey } = useOnrampConfig();
-  const [iframeDialogOpen, setIframeDialogOpen] = useState(false);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
-  const onramperIframeUrl = useMemo(
-    () =>
-      buildOnramperIframeUrl({
-        spendAmount,
-        selectedCurrency,
-        onramperToken,
-        selectedPaymentMethod,
-        selectedPartner,
-        address,
-        apiKey,
-        secretKey,
-      }),
-    [
-      spendAmount,
-      selectedCurrency,
-      onramperToken,
-      selectedPaymentMethod,
-      selectedPartner,
-      address,
-      apiKey,
-      secretKey,
-    ],
-  );
+  // Cleanup overlay & close button on unmount
+  useEffect(() => {
+    return () => {
+      overlayRef.current?.remove();
+      closeBtnRef.current?.remove();
+    };
+  }, []);
 
   const isContinueDisabled = useMemo(
     () =>
@@ -69,6 +59,7 @@ export function useOnrampCheckout({
       !selectedPaymentMethod ||
       !address ||
       isLoading ||
+      isReceiverAddressLoading ||
       !!spendAmountError,
     [
       spendAmount,
@@ -79,6 +70,7 @@ export function useOnrampCheckout({
       selectedPaymentMethod,
       address,
       isLoading,
+      isReceiverAddressLoading,
     ],
   );
 
@@ -106,7 +98,71 @@ export function useOnrampCheckout({
       console.error("[Onramp] Cannot continue –", msg);
       return;
     }
-    setIframeDialogOpen(true);
+
+    const url = buildOnramperIframeUrl({
+      spendAmount,
+      selectedCurrency,
+      onramperToken,
+      selectedPaymentMethod,
+      selectedPartner,
+      address,
+      apiKey,
+      secretKey,
+    });
+
+    // Create fullscreen overlay
+    const overlay = document.createElement("div");
+    overlay.className = "oui-fixed oui-inset-0 oui-z-[100] oui-flex oui-flex-col oui-bg-black/80";
+    overlayRef.current = overlay;
+
+    const removeOverlay = () => {
+      overlay.remove();
+      closeBtn.remove();
+      overlayRef.current = null;
+      closeBtnRef.current = null;
+    };
+
+    // Close button (bottom-right)
+    const closeBtn = document.createElement("button");
+    closeBtnRef.current = closeBtn;
+    closeBtn.className =
+      "oui-fixed oui-bottom-6 oui-right-6 oui-z-[101] oui-flex oui-h-10 oui-w-10 oui-items-center oui-justify-center oui-rounded-full oui-bg-white/20 oui-text-white oui-backdrop-blur oui-transition-colors hover:oui-bg-white/30 oui-cursor-pointer oui-border-none oui-outline-none";
+    closeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+    closeBtn.onclick = removeOverlay;
+
+    // Loading spinner
+    const spinner = document.createElement("div");
+    spinner.className = "oui-absolute oui-inset-0 oui-flex oui-items-center oui-justify-center";
+    spinner.innerHTML = `<div class="oui-h-8 oui-w-8 oui-animate-spin oui-rounded-full oui-border-[3px] oui-border-white/20 oui-border-t-white"></div>`;
+
+    // Create iframe
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    iframe.title = t("onramp.iframeTitle");
+    iframe.sandbox.add(
+      "allow-forms",
+      "allow-popups",
+      "allow-scripts",
+      "allow-same-origin",
+      "allow-top-navigation-by-user-activation",
+    );
+    iframe.allow =
+      "accelerometer; autoplay; camera; gyroscope; payment; microphone";
+    iframe.className = "oui-w-full oui-flex-1 oui-border-none";
+    iframe.addEventListener("load", () => spinner.remove());
+
+    overlay.appendChild(spinner);
+    overlay.appendChild(iframe);
+    document.body.appendChild(overlay);
+    document.body.appendChild(closeBtn);
+
+    // Clear refs before closing parent dialog — close() triggers unmount,
+    // which fires the cleanup effect. We don't want it to remove the overlay.
+    overlayRef.current = null;
+    closeBtnRef.current = null;
+
+    // Close the parent dialog
+    close?.();
   }, [
     spendAmount,
     selectedCurrency,
@@ -114,14 +170,14 @@ export function useOnrampCheckout({
     selectedPartner,
     selectedPaymentMethod,
     address,
+    apiKey,
+    secretKey,
+    close,
     t,
   ]);
 
   return {
-    onramperIframeUrl,
-    iframeDialogOpen,
-    setIframeDialogOpen,
-    isContinueDisabled,
     onContinue,
+    isContinueDisabled,
   };
 }

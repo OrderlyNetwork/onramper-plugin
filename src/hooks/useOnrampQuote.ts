@@ -158,23 +158,21 @@ function extractAllLimits(items: OnrampQuoteItem[]): PaymentMethodLimitsMap {
 const DEFAULT_AMOUNT = 100;
 export function useOnrampQuotes(
   currency: string,
-  amount?: string,
   onramperToken?: string,
 ) {
   const { apiKey } = useOnrampConfig();
   const token = onramperToken || "";
-  const num = amount ? parseFloat(amount) : NaN;
-  const effectiveAmount = !isNaN(num) && num > 0 ? num : DEFAULT_AMOUNT;
-  const url = buildQuoteUrl(currency, effectiveAmount, token);
+  const requestKey = `${currency.toLowerCase()}-${token}`;
+  // Use a stable amount so user typing does not trigger quote refetches.
+  const url = buildQuoteUrl(currency, DEFAULT_AMOUNT, token);
 
   const { data, error, isLoading, isValidating } = useSWR<OnrampQuoteItem[]>(
-    `onramp-quote-${currency.toLowerCase()}-${effectiveAmount}-${token}`,
+    `onramp-quote-${requestKey}`,
     () => onrampFetcher(url, apiKey),
     {
       refreshInterval: 30_000,
       revalidateOnFocus: false,
       dedupingInterval: 1_000,
-      keepPreviousData: true,
     },
   );
 
@@ -183,13 +181,6 @@ export function useOnrampQuotes(
     [data],
   );
 
-  const isAvailable = validRamps.length > 0 && !error;
-
-  const partners = useMemo(() => toPartners(validRamps), [validRamps]);
-  const paymentMethods = useMemo(
-    () => toPaymentMethods(validRamps),
-    [validRamps],
-  );
   const latestLimits = useMemo(
     () => extractAllLimits(validRamps),
     [validRamps],
@@ -198,6 +189,20 @@ export function useOnrampQuotes(
   // Accumulate limits across fetches so they persist even when we stop querying
   const [accumulatedLimits, setAccumulatedLimits] =
     useState<PaymentMethodLimitsMap>({});
+  const [cachedRequestKey, setCachedRequestKey] = useState(requestKey);
+  const [accumulatedValidRamps, setAccumulatedValidRamps] = useState<
+    OnrampQuoteItem[]
+  >([]);
+
+  useEffect(() => {
+    if (cachedRequestKey !== requestKey) {
+      // Currency/token switches need a fresh scope so stale quotes and limits do
+      // not bleed into the next market.
+      setCachedRequestKey(requestKey);
+      setAccumulatedLimits({});
+      setAccumulatedValidRamps([]);
+    }
+  }, [cachedRequestKey, requestKey]);
 
   useEffect(() => {
     if (Object.keys(latestLimits).length > 0) {
@@ -205,17 +210,34 @@ export function useOnrampQuotes(
     }
   }, [latestLimits]);
 
+  useEffect(() => {
+    // Preserve last valid ramps so transient API errors do not clear selection UI.
+    if (validRamps.length > 0) {
+      setAccumulatedValidRamps(validRamps);
+    }
+  }, [validRamps]);
+
+  const isCurrentRequestScope = cachedRequestKey === requestKey;
+  const rampsForUi =
+    validRamps.length > 0
+      ? validRamps
+      : isCurrentRequestScope
+        ? accumulatedValidRamps
+        : [];
+  const paymentMethodLimitsForUi = isCurrentRequestScope ? accumulatedLimits : {};
+
   return {
-    isAvailable,
-    partners,
-    paymentMethods,
-    paymentMethodLimits: accumulatedLimits,
+    // Keep form usable with cached valid ramps when latest fetch contains errors.
+    isAvailable: rampsForUi.length > 0,
+    partners: toPartners(rampsForUi),
+    paymentMethods: toPaymentMethods(rampsForUi),
+    paymentMethodLimits: paymentMethodLimitsForUi,
     isLoading,
     error,
-    validRamps,
+    validRamps: rampsForUi,
     isValidating,
     getPaymentMethodsForPartner: (partnerId: string) =>
-      getPaymentMethodsForPartner(validRamps, partnerId),
+      getPaymentMethodsForPartner(rampsForUi, partnerId),
   };
 }
 
