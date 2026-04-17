@@ -29,3 +29,5 @@ export const LocaleMessages = {
   "onramp.missing.paymentMethod": "payment method",
   "onramp.missing.address": "wallet address",
 };
+
+export type TLocaleMessages = typeof LocaleMessages;
