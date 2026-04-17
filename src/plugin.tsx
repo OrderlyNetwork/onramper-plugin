@@ -4,7 +4,7 @@ import type { OrderlySDK, } from "@orderly.network/plugin-core";
 import { BuyCryptoIcon } from "./components/icons";
 import { OnrampForm } from "./components/onrampForm";
 import { OnrampConfigProvider } from "./context/OnrampConfigContext";
-import { OnrampLocaleProvider } from "./i18n";
+import { LocaleProvider } from "./i18n";
 import { i18n } from "@orderly.network/i18n";
 
 export interface OnrampPluginOptions {
@@ -57,9 +57,9 @@ export function registerOnrampPlugin(options: OnrampPluginOptions) {
             onrampTab,
           ];
           return (
-            <OnrampLocaleProvider>
+            <LocaleProvider>
               <Original {...props} extraTabs={extraTabs} />
-            </OnrampLocaleProvider>
+            </LocaleProvider>
           );
         }),
       ],

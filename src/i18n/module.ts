@@ -1,4 +1,4 @@
-export const OnrampLocales = {
+export const LocaleMessages = {
   "onramp.pluginName": "Buy Crypto (Onramper)",
   "onramp.tabTitle": "Buy Crypto",
 
@@ -29,5 +29,3 @@ export const OnrampLocales = {
   "onramp.missing.paymentMethod": "payment method",
   "onramp.missing.address": "wallet address",
 };
-
-export type TOnrampLocales = typeof OnrampLocales;

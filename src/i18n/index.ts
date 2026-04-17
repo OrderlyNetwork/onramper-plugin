@@ -1,1 +1,1 @@
-export { OnrampLocaleProvider } from "./provider";
+export { LocaleProvider } from "./provider";
