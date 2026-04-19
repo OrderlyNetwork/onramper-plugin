@@ -1,6 +1,6 @@
 import React from "react";
 import { createInterceptor } from "@orderly.network/plugin-core";
-import type { OrderlySDK, } from "@orderly.network/plugin-core";
+import type { OrderlySDK, ApplicationState } from "@orderly.network/plugin-core";
 import { BuyCryptoIcon } from "./components/icons";
 import { OnrampForm } from "./components/onrampForm";
 import { OnrampConfigProvider } from "./context/OnrampConfigContext";
@@ -23,12 +23,15 @@ const defaultIcon = (
 
 export function registerOnrampPlugin(options: OnrampPluginOptions) {
   return (SDK: OrderlySDK,) => {
+
+
+
     SDK.registerPlugin({
       id: "orderly-onramp",
       name: i18n.t("onramp.pluginName"),
       version: "1.0.0",
       interceptors: [
-        createInterceptor("Transfer.DepositAndWithdraw", (Original, props) => {
+        createInterceptor("Transfer.DepositAndWithdraw" as any, (Original, props) => {
           if (!options.apiKey || !options.secretKey) {
             return <Original {...props} />;
           }
