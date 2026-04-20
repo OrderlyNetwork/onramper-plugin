@@ -1,4 +1,4 @@
-import { FC, useCallback, useRef, useSyncExternalStore } from "react";
+import { FC, useCallback, useEffect, useRef, useSyncExternalStore } from "react";
 
 const RADIUS = 6;
 const TRACK_STROKE = 1.5;
@@ -54,10 +54,13 @@ export const QuoteCountdown: FC<QuoteCountdownProps> = ({
   isValidating = false,
 }) => {
   const prevValidatingRef = useRef(isValidating);
-  if (prevValidatingRef.current && !isValidating) {
-    store.reset();
-  }
-  prevValidatingRef.current = isValidating;
+  useEffect(() => {
+    // Trigger reset as an effect (not during render) for StrictMode safety.
+    if (prevValidatingRef.current && !isValidating) {
+      store.reset();
+    }
+    prevValidatingRef.current = isValidating;
+  }, [isValidating]);
 
   const subscribe = useCallback((cb: () => void) => store.subscribe(cb), []);
   const getSnapshot = useCallback(() => store.getSnapshot(), []);

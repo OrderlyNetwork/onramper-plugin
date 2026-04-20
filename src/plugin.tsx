@@ -21,6 +21,21 @@ const defaultIcon = (
   </div>
 );
 
+/**
+ * Keep only the first tab per id to prevent duplicate tab growth across rerenders.
+ */
+function dedupeTabsById(tabs: any[]) {
+  const seen = new Set<string>();
+  return tabs.filter((tab) => {
+    const tabId = String(tab?.id ?? "");
+    if (!tabId || seen.has(tabId)) {
+      return false;
+    }
+    seen.add(tabId);
+    return true;
+  });
+}
+
 export function registerOnrampPlugin(options: OnrampPluginOptions) {
   return (SDK: OrderlySDK,) => {
 
@@ -55,10 +70,10 @@ export function registerOnrampPlugin(options: OnrampPluginOptions) {
             ),
             order: 30,
           };
-          const extraTabs = [
+          const extraTabs = dedupeTabsById([
             ...(Array.isArray(props.extraTabs) ? props.extraTabs : []),
             onrampTab,
-          ];
+          ]);
           return (
             <LocaleProvider>
               <Original {...props} extraTabs={extraTabs} />
