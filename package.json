@@ -1,6 +1,6 @@
 {
   "name": "@orderly.network/onramper-plugin",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Onramper plugin for Orderly",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
