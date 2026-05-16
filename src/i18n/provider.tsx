@@ -5,6 +5,7 @@ import {
   importLocaleJsonModule,
   LocaleCode,
   LocaleEnum,
+  preloadDefaultResource,
   type LocaleJsonModule,
 } from "@orderly.network/i18n";
 import { LocaleMessages } from "./module";
@@ -37,9 +38,12 @@ const localeJsonLoaders: Record<LocaleEnum, LocaleJsonLoader | undefined> = {
   [LocaleEnum.tc]: () => import("./locales/tc.json"),
 };
 
-const resources: AsyncResources = async (lang: LocaleCode, _ns: string) => {
+// Seed fallback messages before async locale chunks load to avoid flashing i18n keys.
+preloadDefaultResource(LocaleMessages);
+
+const resources: AsyncResources = (lang: LocaleCode, _ns: string) => {
   if (lang === LocaleEnum.en) {
-    return LocaleMessages;
+    return Promise.resolve(LocaleMessages);
   }
   const loader = localeJsonLoaders[lang as LocaleEnum];
   return importLocaleJsonModule(loader);
