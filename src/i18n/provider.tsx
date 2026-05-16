@@ -1,71 +1,54 @@
-import { FC, PropsWithChildren, useEffect, useState } from "react";
+import { FC, PropsWithChildren } from "react";
 import {
   AsyncResources,
-  i18n,
+  ExternalLocaleProvider,
+  importLocaleJsonModule,
   LocaleCode,
   LocaleEnum,
-  parseI18nLang,
-  registerResources,
-  Resources,
-  defaultNS,
-  ExternalLocaleProvider,
+  type LocaleJsonModule,
 } from "@orderly.network/i18n";
 import { LocaleMessages } from "./module";
-import zh from "./locales/zh.json";
-import ja from "./locales/ja.json";
-import ko from "./locales/ko.json";
-import fr from "./locales/fr.json";
-import de from "./locales/de.json";
-import es from "./locales/es.json";
-import it from "./locales/it.json";
-import pt from "./locales/pt.json";
-import ru from "./locales/ru.json";
-import tr from "./locales/tr.json";
-import vi from "./locales/vi.json";
-import id from "./locales/id.json";
-import pl from "./locales/pl.json";
-import nl from "./locales/nl.json";
-import tc from "./locales/tc.json";
-import uk from "./locales/uk.json";
 
-// registerDefaultResource(LocaleMessages);
+/**
+ * One explicit dynamic import per locale so webpack/Next can statically resolve chunks.
+ * Vite accepts the same pattern; avoid variable-path dynamic imports for locale JSON.
+ *
+ * @see packages/i18n/docs/guide/examples.md — Async resources (Next.js and webpack)
+ */
+type LocaleJsonLoader = () => Promise<LocaleJsonModule>;
 
-const resources = {
-  [LocaleEnum.en]: LocaleMessages,
-  [LocaleEnum.zh]: zh,
-  [LocaleEnum.ja]: ja,
-  [LocaleEnum.es]: es,
-  [LocaleEnum.ko]: ko,
-  [LocaleEnum.vi]: vi,
-  [LocaleEnum.de]: de,
-  [LocaleEnum.fr]: fr,
-  [LocaleEnum.ru]: ru,
-  [LocaleEnum.id]: id,
-  [LocaleEnum.tr]: tr,
-  [LocaleEnum.it]: it,
-  [LocaleEnum.pt]: pt,
-  [LocaleEnum.uk]: uk,
-  [LocaleEnum.pl]: pl,
-  [LocaleEnum.nl]: nl,
-  [LocaleEnum.tc]: tc,
+const localeJsonLoaders: Record<LocaleEnum, LocaleJsonLoader | undefined> = {
+  [LocaleEnum.en]: undefined,
+  [LocaleEnum.zh]: () => import("./locales/zh.json"),
+  [LocaleEnum.ja]: () => import("./locales/ja.json"),
+  [LocaleEnum.es]: () => import("./locales/es.json"),
+  [LocaleEnum.ko]: () => import("./locales/ko.json"),
+  [LocaleEnum.vi]: () => import("./locales/vi.json"),
+  [LocaleEnum.de]: () => import("./locales/de.json"),
+  [LocaleEnum.fr]: () => import("./locales/fr.json"),
+  [LocaleEnum.ru]: () => import("./locales/ru.json"),
+  [LocaleEnum.id]: () => import("./locales/id.json"),
+  [LocaleEnum.tr]: () => import("./locales/tr.json"),
+  [LocaleEnum.it]: () => import("./locales/it.json"),
+  [LocaleEnum.pt]: () => import("./locales/pt.json"),
+  [LocaleEnum.uk]: () => import("./locales/uk.json"),
+  [LocaleEnum.pl]: () => import("./locales/pl.json"),
+  [LocaleEnum.nl]: () => import("./locales/nl.json"),
+  [LocaleEnum.tc]: () => import("./locales/tc.json"),
 };
 
-Object.entries(resources).forEach(([locale, messages]) => {
-  i18n.addResourceBundle(locale, defaultNS, messages, true, true);
-});
-
-// const resources: AsyncResources = async (lang: LocaleCode) => {
-//   if (lang === LocaleEnum.en) {
-//     return {};
-//   }
-//   return import(`./locales/${lang}.json`).then((res) => res.default);
-// };
+const resources: AsyncResources = async (lang: LocaleCode, _ns: string) => {
+  if (lang === LocaleEnum.en) {
+    return LocaleMessages;
+  }
+  const loader = localeJsonLoaders[lang as LocaleEnum];
+  return importLocaleJsonModule(loader);
+};
 
 export const LocaleProvider: FC<PropsWithChildren> = (props) => {
-  return props.children;
-  // return (
-  //   <ExternalLocaleProvider resources={resources}>
-  //     {props.children}
-  //   </ExternalLocaleProvider>
-  // );
+  return (
+    <ExternalLocaleProvider resources={resources}>
+      {props.children}
+    </ExternalLocaleProvider>
+  );
 };
